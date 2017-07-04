@@ -11,7 +11,9 @@ public class ChatServerView {
 	public void launchFrame(){
 		JFrame frame=new JFrame("Server");
 		try {
-			label=new JLabel("This Server IP Adress: " + Inet4Address.getLocalHost().getHostAddress());
+			label=new JLabel();
+			label.setText("<html>This Server IP Adress: " + Inet4Address.getLocalHost().getHostAddress()+
+					"<br>"+	"Virtual port: 6000<br></html>");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
