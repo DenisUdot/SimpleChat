@@ -2,12 +2,13 @@ package com.mychat.controller;
 
 import com.mychat.chatclient.ChatClient;
 import com.mychat.view.ChatView;
+import com.mychat.view.MyView;
 
 public class MyController implements Controller {
 private ChatView chat;
 
-public MyController(ChatView chat2){
-	chat=chat2;
+public MyController(MyView chat2){
+	chat=(ChatView)chat2;
 	
 }
 
@@ -16,7 +17,6 @@ public MyController(ChatView chat2){
 		case "SEND":
 		ChatClient.sendMessage((String)chat.comboBox.getSelectedItem()+": "+chat.inputField.getText());
 		chat.inputField.setText("");
-		//chat.outputArea.setCaretPosition(chat.outputArea.getDocument().getLength()-1);
 		break;
 		case "ABOUT":
 			chat.showDialog();

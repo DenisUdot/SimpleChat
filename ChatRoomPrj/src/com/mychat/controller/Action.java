@@ -7,25 +7,24 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
-
 import com.mychat.fvk.Fwk;
-import com.mychat.view.ChatView;
+import com.mychat.view.MyView;
 
 public class Action implements ActionListener {
-	private ChatView chat;
+	private MyView chat;
 	public Action(){
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().getClass().getSimpleName().equals("JButton")){
 			JButton button=(JButton) e.getSource();
-			chat=((ChatView)SwingUtilities.windowForComponent(button));
-			Fwk.getInstance(chat).getMyController().keyPressed(button.getActionCommand());
+			chat=((MyView)SwingUtilities.windowForComponent(button));
+			Fwk.getInstance().getMyController(chat).keyPressed(button.getActionCommand());
 		}
 		if(e.getSource().getClass().getSimpleName().equals("JMenuItem")){
 			JMenuItem item=(JMenuItem)e.getSource();
-			chat=(ChatView)SwingUtilities.windowForComponent(getMenuBarMenu(item));
-			Fwk.getInstance(chat).getMyController().keyPressed(item.getActionCommand());
+			chat=(MyView)SwingUtilities.windowForComponent(getMenuBarMenu(item));
+			Fwk.getInstance().getMyController(chat).keyPressed(item.getActionCommand());
 			
 		}
 	}

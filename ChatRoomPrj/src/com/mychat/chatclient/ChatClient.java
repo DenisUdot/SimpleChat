@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import com.mychat.view.ChatView;
+import com.mychat.view.ConnectView;
 
 public class ChatClient {
 	private static PrintWriter writer;
@@ -17,6 +18,8 @@ public static void setUpNetwok(ChatView chat){
 		t.start();
 		System.out.println("network was setup");
 	}catch(IOException ex){
+		ConnectView view=new ConnectView();
+		view.launchFrame();
 		ex.printStackTrace();
 	}
 }

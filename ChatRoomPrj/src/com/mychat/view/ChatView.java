@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import com.mychat.controller.Action;
 
-public class ChatView extends JFrame{
+public class ChatView extends JFrame implements MyView{
 private static final long serialVersionUID = 1L;
 public JTextArea outputArea;
 public JTextField inputField;
