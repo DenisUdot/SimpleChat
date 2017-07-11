@@ -19,11 +19,11 @@ public class ConnectView extends JFrame implements MyView {
 		panel=new JPanel();
 		setIp=new JButton("Setup IP");
 		setIp.setActionCommand("SET IP");
-		//Maybe need rebuild
 		setIp.addActionListener(new Action());
 		add(new JLabel("Insert server IP"),BorderLayout.NORTH);
 		for(int i=0; i<serverIp.length; i++){
-			serverIp[i]=new JTextField(3);
+			serverIp[i]=new JTextField();
+			serverIp[i].setColumns(3);
 			panel.add(serverIp[i]);
 				if(i<(serverIp.length-1)){
 					panel.add(new JLabel("."));
@@ -33,6 +33,6 @@ public class ConnectView extends JFrame implements MyView {
 		add(setIp, BorderLayout.SOUTH);
 		pack();
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}		
 }

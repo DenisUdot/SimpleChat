@@ -1,5 +1,6 @@
 package com.mychat.controller;
 
+import com.mychat.chatclient.ChatClient;
 import com.mychat.view.ConnectView;
 import com.mychat.view.MyView;
 
@@ -20,7 +21,12 @@ public class ConnectViewController implements Controller {
 				ipAdress.append(".");
 			}
 		}
-		System.out.println(ipAdress);
+		ChatClient.socketIp=ipAdress.toString();
+		if(ChatClient.setUpNetwok()==true){
+			System.out.println(ipAdress);
+			view.dispose();
+		}
+		
 	}
 
 }
