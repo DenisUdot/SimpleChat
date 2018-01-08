@@ -15,14 +15,14 @@ public class ConnectViewController implements Controller {
 	public void keyPressed(String Name) {
 		System.out.println(Name);
 		ipAdress=new StringBuffer();
-		for(int i=0; i<view.serverIp.length; i++){
+		for (int i=0; i<view.serverIp.length; i++){
 		ipAdress.append(view.serverIp[i].getText());
-			if(i<(view.serverIp.length-1)){
+			if (i<(view.serverIp.length-1)){
 				ipAdress.append(".");
 			}
 		}
 		ChatClient.socketIp=ipAdress.toString();
-		if(ChatClient.setUpNetwok()==true){
+		if (ChatClient.setUpNetwok()==true){
 			System.out.println(ipAdress);
 			view.dispose();
 		}

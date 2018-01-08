@@ -21,18 +21,18 @@ public class ClientHandler implements Runnable{
 	}
 	public void run() {
 		String message;
-		try {
-			while((message=bReader.readLine())!=null){
+		try{
+			while ((message=bReader.readLine())!=null){
 				tellEveryone(message);
 			}
-		} catch (IOException e) {
+		}catch (IOException e) {
 			
 			e.printStackTrace();
 		}
 		
 	}
 	public void tellEveryone(String message){
-		for(int i=0; i<ClientList.getSize();i++){
+		for (int i=0; i<ClientList.getSize();i++){
 			try{System.out.println(message);
 				ClientList.getClient(i).println(message);
 				ClientList.getClient(i).flush();

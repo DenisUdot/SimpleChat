@@ -22,13 +22,13 @@ public class ServerListener implements Runnable {
 	}
 	public void run() {
 		String message;
-		try{
+		try {
 			while((message=reader.readLine())!=null){
 				System.out.println(message);
 				chat.outputArea.append(message+"\n");
 				
 			}
-		}catch(IOException ex){
+		} catch(IOException ex){
 				ex.printStackTrace();
 		}
 	}

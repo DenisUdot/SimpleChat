@@ -2,6 +2,7 @@ package com.mychat.view;
 import java.awt.*;
 import javax.swing.*;
 import com.mychat.controller.Action;
+import com.mychat.lang.ApachePOIExcelReadLang;
 
 public class ChatView extends JFrame implements MyView{
 private static final long serialVersionUID = 1L;
@@ -19,28 +20,43 @@ public void launchFrame(){
 	outputArea.setLineWrap(true);
 	
 	JMenuBar menuBar=new JMenuBar();
-	JMenu file=new JMenu("File");
-	JMenuItem quitMenuItem=new JMenuItem("Quit");
+	JMenu file=new JMenu(ApachePOIExcelReadLang.getNameFromExcel("File"));
+	JMenuItem quitMenuItem=new JMenuItem(ApachePOIExcelReadLang.getNameFromExcel("Quit"));
 	quitMenuItem.setActionCommand("QUIT");
 	quitMenuItem.addActionListener(action);
 	file.add(quitMenuItem);
 	menuBar.add(file);
-	JMenu help=new JMenu("Help");
-	JMenuItem about=new JMenuItem("About");
+	
+	JMenu language = new JMenu(ApachePOIExcelReadLang.getNameFromExcel("Language"));
+	JMenuItem english = new JMenuItem(ApachePOIExcelReadLang.getNameFromExcel("English"));
+	JMenuItem russian = new JMenuItem(ApachePOIExcelReadLang.getNameFromExcel("Russian"));
+	english.setActionCommand("ENGLISH");
+	english.addActionListener(action);
+	russian.setActionCommand("RUSSIAN");
+	russian.addActionListener(action);
+	language.add(english);
+	language.add(russian);
+	menuBar.add(language);
+	
+	JMenu help = new JMenu(ApachePOIExcelReadLang.getNameFromExcel("Help"));
+	JMenuItem about = new JMenuItem(ApachePOIExcelReadLang.getNameFromExcel("About"));
 	about.setActionCommand("ABOUT");
 	about.addActionListener(action);
 	help.add(about);
 	menuBar.add(help);
+	
+	
+	
 	setJMenuBar(menuBar);
 	
 	inputField=new JTextField(50);
 	inputField.setActionCommand("INPUT_FIELD");
 	
-	sendButton=new JButton("Send");
+	sendButton=new JButton(ApachePOIExcelReadLang.getNameFromExcel("Send"));
 	sendButton.addActionListener(action);
 	sendButton.setActionCommand("SEND");
 	
-	quitButton=new JButton("Quit");
+	quitButton=new JButton(ApachePOIExcelReadLang.getNameFromExcel("Quit"));
 	quitButton.addActionListener(action);
 	quitButton.setActionCommand("QUIT");
 	String[] names={"assasin", "boss", "hugo boss", "dan", "mari"};

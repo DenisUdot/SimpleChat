@@ -17,7 +17,7 @@ public class ChatServer {
 		try{
 			
 			serverSock = new ServerSocket(6000);
-			while(true){
+			while (true){
 				Socket clientSocket=serverSock.accept();
 				PrintWriter writer=new PrintWriter(clientSocket.getOutputStream());
 				ClientList.addClient(writer);

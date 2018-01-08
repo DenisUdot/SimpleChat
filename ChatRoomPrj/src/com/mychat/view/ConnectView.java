@@ -17,15 +17,15 @@ public class ConnectView extends JFrame implements MyView {
 	
 	public void launchFrame(){
 		panel=new JPanel();
-		setIp=new JButton("Setup IP");
+		setIp=new JButton("Connect");
 		setIp.setActionCommand("SET IP");
 		setIp.addActionListener(new Action());
 		add(new JLabel("Insert server IP"),BorderLayout.NORTH);
-		for(int i=0; i<serverIp.length; i++){
+		for (int i=0; i<serverIp.length; i++){
 			serverIp[i]=new JTextField();
 			serverIp[i].setColumns(3);
 			panel.add(serverIp[i]);
-				if(i<(serverIp.length-1)){
+				if (i<(serverIp.length-1)){
 					panel.add(new JLabel("."));
 				}
 		}

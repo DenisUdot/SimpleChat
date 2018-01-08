@@ -11,14 +11,14 @@ public class ChatClient {
 	public static String socketIp="127.0.0.1";
 	private static ChatView chat=null;
 public static boolean setUpNetwok(){
-		try{
+		try {
 			socket=new Socket(socketIp,6000);
 			writer=new PrintWriter(socket.getOutputStream());
 			Thread t =new Thread(new ServerListener(socket,getChat()));
 			t.start();
 			System.out.println("network was setup");
 			return true;
-		}catch(IOException ex){
+		} catch(IOException ex){
 			ex.printStackTrace();
 			return false;
 		}

@@ -17,7 +17,7 @@ public class MainTest {
 	}
 	public void getConnect(){
 		ChatClient.setUpNetwok();
-		if(ChatClient.setUpNetwok()==false){
+		if (ChatClient.setUpNetwok()==false){
 			ConnectView view=new ConnectView();
 			view.launchFrame();
 		}
